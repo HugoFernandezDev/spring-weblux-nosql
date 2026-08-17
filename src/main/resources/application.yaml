@@ -4,10 +4,14 @@ server:
 spring:
   application:
     name: spring-webflux-nosql
-  data:
-    mongodb:
-      database: primera_database
-      uri: mongodb+srv://hugofernandez_db_user:PmHQ4BXXbNvyxo6v@cluster0.pzehdgj.mongodb.net/?appName=Cluster0
+
+mongodb:
+  local:
+    database: database_local
+    uri: mongodb://admin:admin12345@localhost:27017/database_local?authSource=admin
+  cloud:
+    database: database_cloud
+    uri: mongodb+srv://hugofernandez_db_user:PmHQ4BXXbNvyxo6v@cluster0.pzehdgj.mongodb.net/database_cloud?appName=Cluster0
 
 springdoc:
   api-docs:

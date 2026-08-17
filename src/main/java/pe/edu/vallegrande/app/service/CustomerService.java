@@ -6,10 +6,18 @@ import reactor.core.publisher.Mono;
 
 public interface CustomerService {
 
-    Flux<Customer> findAll();
+    // Operaciones para MongoDB Local (database_local)
+    Flux<Customer> findAllLocal();
+    Mono<Customer> findByIdLocal(String id);
+    Mono<Customer> saveLocal(Customer customer);
 
-    Mono<Customer> findById(String id);
+    // Operaciones para MongoDB Cloud Atlas (database_cloud)
+    Flux<Customer> findAllCloud();
+    Mono<Customer> findByIdCloud(String id);
+    Mono<Customer> saveCloud(Customer customer);
 
-    Mono<Customer> save(Customer customer);
-    
+    // Operaciones combinadas (Ambas BD simultáneamente)
+    Flux<Customer> findAllBoth();
+    Mono<Customer> saveBoth(Customer customer);
+
 }
